@@ -1,0 +1,117 @@
+<div class="backg_login_page">
+
+    <div class="login-page">
+        <div class="login-box">
+            <div class="logo">
+                <a href="javascript:void(0);">Administrador <b>MTPE</b></a>
+                <b>MTPE - GESTION DE PROYECTOS</b>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <form id="sign_in" [formGroup]="formLogin">
+                        
+                        <div class="msg">Iniciar sesión</div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">person</i>
+                            </span>
+                            <div class="form-line">
+                                <input formControlName="username" type="text" class="form-control" name="username" placeholder="Usuario" required autofocus>
+                            </div>
+                             <div [hidden]="username.valid || username.untouched">                
+                                <div class="error" [hidden]="!username.hasError('required')">
+                                Ingrese su mail válido
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <div class="form-line">
+                                <input type="password" class="form-control" formControlName="password" name="password" placeholder="Contraseña" required>
+                            </div>
+                            <div [hidden]="password.valid || password.untouched">                
+                                <div class="error" [hidden]="!password.hasError('required')">
+                                Ingrese su contraseña
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12" >
+                    
+                                <ngx-recaptcha2 #captchaElem
+                                    [siteKey]="siteKey"
+                                    formControlName="recaptcha"
+                                >
+
+                                </ngx-recaptcha2>
+                            </div>
+                    
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xs-6 p-t-5">
+                     
+                            </div>
+                            <div class="col-xs-6">
+                                <button  [disabled]="!formLogin.valid" (click)="onSubmit()" class="btn btn-block bg-pink waves-effect" type="button">INICIAR SESIÓN</button>
+
+                           
+                            </div>
+                        </div>
+
+
+                        <div class="row m-b--25">
+          
+                        </div>
+                        <div class="row m-t-30 m-b--20">
+                            
+                            <div class="col-xs-12 align-left">
+                                <a data-toggle="modal" href="#mi_modal">Términos y Condiciones</a>
+                                
+                            </div> 
+                        </div>
+                    </form>
+
+
+                    <div class="footer_login">
+                        <span>usuario:  LADMIN  - pass:  123456</span><br>
+                        <span>usuario:  LOPERA  - pass:  123456</span> 
+                    </div>
+
+
+                </div>
+
+          
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">TÉRMINOS Y CONDICIONES</h4>
+          <hr>
+        </div>
+        <div class="modal-body">
+        
+            <p>Para publicar, cargar o descargar materiales, comunicarse a través del sitio y tener acceso al sitio, los Servicios, los recursos y parte o la totalidad del contenido del Sitio (definido a continuación), es posible que se le solicite al Usuario proporcionar detalles de registro e iniciar sesión. Para el uso de este sitio, los Servicios y el contenido del Sitio, es condición que todos los detalles de registro que proporcione el Usuario sean y sigan siendo válidos, correctos, actualizados y completos. Usted acepta notificar a Sony de inmediato en caso de cualquier cambio pertinente a su registro. La notificación debe realizarse a la dirección postal o dirección de correo electrónico de Sony indicada en este sitio o anteriormente en estos Términos. Si Sony cree que la información no es correcta, no está actualizada o está incompleta, o si de alguna otra manera y según su criterio Sony lo considera adecuado (incluso si sospecha del registro de varias cuentas/perfiles de Usuario por parte de la misma persona), tiene el derecho de rechazar el acceso del Usuario al sitio o a cualquiera de sus recursos, Servicios o contenidos del Sitio y de cancelar o suspender la cuenta del Usuario (si tiene una). </p>           <br>
+            <P>Si inicia sesión para obtener acceso a una parte o la totalidad de este sitio y si Sony proporciona una opción para “cerrar sesión”, “salir” (o similar), puede cerrar sesión y salir de la cuenta al terminar su sesión. Sony se reserva el derecho de cerrar la sesión de Usuarios conectados cuyas cuentas estén inactivas durante un periodo prolongado de tiempo. Si uno de los Servicios a los que accede a través de este sitio corresponde al acceso a Internet en sí (por ejemplo, servicio ISP), cuando usted esté conectado, a fin de mantener la calidad del servicio para los usuarios en general, Sony se reserva el derecho de (1) desconectarlo del Servicio si su conexión al Servicio está inactiva, o al cabo de 15 minutos o transcurrido otro periodo de tiempo que determinemos según nuestro criterio razonable, y/o (2) limitar el número total de Usuarios conectados al Servicio en cualquier momento determinado o limitar el periodo durante el cual un Usuario puede estar conectado en una sesión.</P>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

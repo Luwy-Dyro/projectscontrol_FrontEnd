@@ -1,0 +1,192 @@
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>EDITAR PROYECTO</h2>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+      
+                    <div class="body">
+                     
+                        <form [formGroup]="formProyecto">
+                            <h2 class="card-inside-title">Datos del proyecto:</h2>
+                            <div class="row clearfix">
+                        
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea rows="3" class="form-control no-resize" placeholder="Proyecto..."
+                                                formControlName="nombreProyecto">{{ project.nombreProyecto }} </textarea>
+                                        </div>
+                                        <div [hidden]="nombreProyecto.valid || nombreProyecto.untouched">
+                                            <div class="error" [hidden]="!nombreProyecto.hasError('required')">
+                                                Este campo es requerido
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <div class="form-group mg0">
+                                         <div class="form-line">
+
+                                            <select class="form-control show-tick" id="codTipo" 
+                                                formControlName="codTipo" 
+                                                >
+                                                <option [defaultSelected]=true [value]="project.codTipo" >{{project.tipoProyecto.tipoProyecto}}</option>
+                                                <option *ngFor="let tipo of tiposproyectos" [value]="tipo.codTipo">{{ tipo.tipoProyecto }}</option>
+                        
+                                            </select>
+                                            
+
+                                        </div>
+                                        <div *ngIf="codTipo.invalid && (codTipo.dirty || codTipo.touched)">
+                                            <div class="error">Este campo es requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                
+                                
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+
+                                            <select class="form-control show-tick" 
+                                            id="codEstado"
+                                                formControlName="codEstado"
+                                                >
+                                                <option [defaultSelected]=true [value]="project.codEstado" >{{project.estadoProyecto.estadoProyecto}}</option>
+                                                <option *ngFor="let estado of estadoproyecto" [value]="estado.codEstado">{{ estado.estadoProyecto }}</option>
+                                            </select>                                            
+                                        </div>
+                                        <div *ngIf="codEstado.invalid && (codEstado.dirty || codEstado.touched)">
+                                            <div class="error">Este campo es requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+            
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+
+                                            <select class="form-control show-tick" id="soporte"  formControlName="soporte" >
+                                                <option [value]="project.soporte" [defaultSelected]=true>{{project.soporte }}</option>
+                                   
+                                                <option value="JORGE BARDALES">JORGE BARDALES</option>
+                                                <option value="LUIS DEYRO">LUIS DEYRO</option>
+                                                <option value="LUIS BENITO PÉREZ TRUJILLO">LUIS BENITO PÉREZ TRUJILLO</option>
+                                                <option value="AMED CORIMANYA VALENCIA">AMED CORIMANYA VALENCIA</option>
+                                                <option value="GERMÁN MICHUE GRIJALBA">GERMÁN MICHUE GRIJALBA</option>
+                                                
+                                            </select>
+                                            
+                                        </div>
+                                        <div *ngIf="soporte.invalid && (soporte.dirty || soporte.touched)">
+                                            <div class="error">Este campo es requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                             
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control show-tick" id="coordinador" formControlName="coordinador"
+                                            >
+                                                <option [value]="project.coordinador" [defaultSelected]=true>{{project.coordinador }}</option>
+                                                <option value="AMED CORIMANYA VALENCIA">AMED CORIMANYA VALENCIA</option>
+                                                <option value="GERMÁN MICHUE GRIJALBA">GERMÁN MICHUE GRIJALBA</option>
+                                                
+
+                                            </select>                                            
+                                        </div>
+                                        <div *ngIf="coordinador.invalid && (coordinador.dirty || coordinador.touched)">
+                                            <div class="error">Este campo es requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <h2 class="card-inside-title">Datos del área:</h2>
+                                </div>
+
+            
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+
+                                            <select class="form-control show-tick" id="codSector" formControlName="codSector"
+                                                 >
+                                                 <option [value]="project.codSector" [defaultSelected]=true>{{project.estadoProyecto.estadoProyecto }}</option>
+                                                <option [value]="sec.codSector" *ngFor="let sec of sector">{{ sec.nombreSector }}</option>
+                                            </select>                                            
+
+                                        </div>
+                                        <div *ngIf="codSector.invalid && (codSector.dirty || codSector.touched)">
+                                            <div class="error">Este campo es requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" placeholder="Dirección"
+                                                formControlName="direccion" />
+                                        </div>
+                                        <div [hidden]="direccion.valid || direccion.untouched">
+                                            <div class="error" [hidden]="!direccion.hasError('required')">
+                                                Este campo es requerido
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-sm-12">
+                                    <h2 class="card-inside-title">Observaciones:</h2>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea rows="4" class="form-control no-resize"
+                                                placeholder="Ingrese aquí..." formControlName="observacion"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="button-demo">
+                                        <button type="button" class="btn btn-primary waves-effect"
+                                             (click)="onsubmit()">ACTUALIZAR</button>
+                                        <button type="button" class="btn btn-outline waves-effect"
+                                             routerLink="/proyecto-consultas" >CANCELAR</button>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+    
+</section>

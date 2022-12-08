@@ -1,0 +1,96 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>CONSULTA DE ENTREGABLE</h2>
+        </div>
+        <!-- Input -->
+        <div class="row clearfix">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Buscar aplicativo
+                        </h2>
+
+                    </div>
+                    <div class="body">
+
+
+                  
+                        <div class=" clearfix">
+           
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Nombre del aplicativo" name="searchApp" [(ngModel)]="searchApp" (ngModelChange)="Search()" />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th (click)="order('codProyecto')">COD<i class="material-icons">unfold_more</i></th>
+                                    <th (click)="order('nombreAplicativo')">NOMBRE APLICATIVO<i
+                                            class="material-icons">unfold_more</i></th>
+                                    <th (click)="order('tipoUso')">TIPO DE USO<i class="material-icons">unfold_more</i>
+                                    </th>
+                                    <th (click)="order('codTipoApp')">TIPO DE APP<i
+                                            class="material-icons">unfold_more</i></th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    *ngFor="let aplicativo of aplicativos | orderBy: key: true | paginate: { itemsPerPage: 10, currentPage:pag};">
+                                    <th scope="row">{{aplicativo.codAplicativo}}</th>
+                                    <td><p class="pwrap1">{{aplicativo.nombreAplicativo}}</p></td>
+                                    <td>{{aplicativo.tipoUso}}</td>
+                                    <td>{{aplicativo.tipoapp.tipoApp}}</td>
+
+                                    <td class="w150px p10_0">
+                                        <!-- <button type="button" class="btn btn-primary waves-effect"
+                                            routerLink="/proyecto/{{aplicativo.codAplicativo}}">
+                                            VER
+                                        </button> -->
+
+                                     
+
+                                        <div class="actions_reg">
+                                        
+                                            <span class="glyphicon glyphicon-eye-open cursor ver_reg" aria-hidden="true" routerLink="/proyecto/{{aplicativo.codAplicativo}}"></span>
+                                            
+                                            <span (click)="deleteApp(aplicativo.codAplicativo)" class="glyphicon glyphicon-remove cursor delete_reg" aria-hidden="true"></span>
+    
+    
+                                        </div>
+                                    </td>
+
+                            
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="pag = $event"></pagination-controls>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

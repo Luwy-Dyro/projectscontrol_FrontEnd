@@ -1,0 +1,114 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>ENTREGABLE</h2>
+        </div>
+   
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+ 
+
+
+                    <div class="header">
+                        <h2>
+                            REGISTRO DEL ENTREGABLE
+                        </h2>
+ 
+                    </div>
+                    <div class="body">
+                        <form [formGroup]="formEntregables">
+                        <h2 class="card-inside-title">Datos del entregable:</h2>
+                        <div class="row clearfix">
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea rows="4" class="form-control no-resize"
+                                            placeholder="Entregable..." formControlName="nombreAplicativo"></textarea>
+                                    </div>
+                                    <div [hidden]="nombreAplicativo.valid || nombreAplicativo.untouched">                
+                                        <div class="error" [hidden]="!nombreAplicativo.hasError('required')">
+                                          Este campo es requerido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                <select class="form-control show-tick" formControlName="tipoUso" id="select2" required="required" tabindex="-98"
+                                    aria-required="true">
+                                    <option value="">Tipo de uso...</option>
+                                    <option value="INTERNO">INTERNO</option>
+                                    <option value="EXTERNO">EXTERNO</option>
+                                    <option value="INTERNO/EXTERNO">INTERNO/EXTERNO</option>
+
+                                </select>                                
+                                </div>
+                                <div *ngIf="tipoUso.invalid && (tipoUso.dirty || tipoUso.touched)">
+                                    <div class="error">Este campo es requerido</div>
+                                </div> 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                <select class="form-control show-tick" formControlName="codTipoApp" id="select2" required="required" tabindex="-98"
+                                    aria-required="true">
+                                    <option value="">Tipo de entregable...</option>
+                                    <option value="1">WEB</option>
+                                    <option value="2">MOVIL</option>
+                                    <option value="3">DESKTOP</option>
+                                </select>                                
+                                </div>
+                                <div *ngIf="codTipoApp.invalid && (codTipoApp.dirty || codTipoApp.touched)">
+                                    <div class="error">Este campo es requerido</div>
+                                </div> 
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" formControlName="codProyecto" id="codProyecto" 
+                                           >
+                                            <option value="">Seleccione proyecto...</option>
+                                        
+                                            <option value="{{ proy.codProyecto }}" *ngFor="let proy of proyectos">{{ proy.nombreProyecto }}</option>
+                                        </select>                                
+                                        </div>
+                                <div [hidden]="codProyecto.valid || codProyecto.untouched">                
+                                    <div class="error" [hidden]="!codProyecto.hasError('required')">
+                                    Este campo es requerido
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                       
+
+                            <div class="col-sm-12">
+                                
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="button-demo">
+                                    <button type="button" class="btn btn-primary waves-effect" [disabled]="!formEntregables.valid" (click)="onsubmit()">REGISTRAR</button>
+                                    <button type="button" class="btn btn-default waves-effect">CANCELAR</button>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

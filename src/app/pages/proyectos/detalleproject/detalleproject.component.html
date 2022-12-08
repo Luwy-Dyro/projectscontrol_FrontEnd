@@ -1,0 +1,116 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>DETALLES DEL PROYECTO </h2>
+        </div>
+   
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+
+                    <div class="body">
+                      
+                        <div class="clearfix" *ngIf="project != ''">
+                            
+                            <div class="col-sm-12">
+                                <h2 class="card-inside-title">Nombre del proyecto:</h2>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <p>{{ project.nombreProyecto }}</p>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <h2 class="card-inside-title">Tipo del proyecto:</h2>
+                               <p>{{ project.tipoProyecto.tipoProyecto }}</p>
+                               
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="card-inside-title">Estado:</h2>
+                                <p>{{ project.estadoProyecto.estadoProyecto }}</p>
+                               
+                            </div>
+                            <div class="col-sm-3">
+                                <h2 class="card-inside-title">Soporte:</h2>
+                                <p>{{ project.soporte }}</p>
+                               
+                            </div>
+
+                            <div class="col-sm-3">
+                                <h2 class="card-inside-title">Coordinador:</h2>
+                                <p>{{ project.coordinador }}</p>
+                             
+                            </div>
+
+
+                        
+
+
+                                                 
+
+                        </div>
+              
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <div class="body">
+                      
+                        <div class="clearfix" *ngIf="project != ''">
+                            
+                         
+                           
+
+                         
+                            <div class="col-sm-12">
+                                <h2 class="card-inside-title" style="margin: 0 !important;">Datos del área:</h2>
+                            </div>
+
+                            <div class="col-sm-3">
+                               
+                                    <h2 class="card-inside-title">Sector:</h2>
+                                    <p>{{project.sector.nombreSector}}</p>
+                  
+                            </div>
+                            <div class="col-sm-9">
+                        
+                                        <h2 class="card-inside-title">Dirección:</h2>
+                                        <p>{{ project.direccion }}</p>
+                         
+                            </div>
+
+
+                                                 
+
+                            <div class="col-sm-12">
+                                <h2 class="card-inside-title" style="margin: 0 !important;">Observaciones:</h2>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <p>{{ project.observacion }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 text-right">
+                                <div class="button-demo">
+                                    <button type="button" class="btn btn-primary waves-effect" routerLink="/proyecto-consultas">VOLVER AL LISTADO</button>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+              
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+
+    </div>
+</section>

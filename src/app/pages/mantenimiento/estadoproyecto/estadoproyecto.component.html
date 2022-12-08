@@ -1,0 +1,110 @@
+        
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            TABLA:  {{typetable}}
+                        </h2>
+
+                    </div>
+                    <div class="body">
+
+                        <div class="row clearfix">
+                            
+                            <div class="col-md-6">
+
+                                <div class="button-demo">
+                                    <button data-toggle="modal" href="#mi_modal" type="button"
+                                    class="btn btn-primary waves-effect">AGREGAR</button>                                             
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <table id="mainTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                    <th>  </th>
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tp of eproyectos" >
+                                    <td>{{ tp.codEstado }}</td>
+                                    <td>{{tp.estadoProyecto}}</td>
+                                    <td>
+                                        <span (click)="deleteEstadoProyecto(tp.codEstado)" class="glyphicon glyphicon-remove cursor delete_reg" aria-hidden="true"></span>
+                                    </td>
+                                    
+                                </tr>
+                             
+                               
+                            </tbody>
+
+                        </table>
+                    
+                    </div>
+                        
+                </div>
+ 
+            </div>
+
+
+            
+            
+
+<div class="modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">AGREGAR ESTADO</h4>
+                <hr>
+            </div>
+            <div class="modal-body">
+
+                <form [formGroup]="formProyecto">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" class="form-control uppercase" placeholder="Escriba aquí..."
+                                    formControlName="estadoProyecto">
+
+                            </div>
+                            <div [hidden]="estadoProyecto.valid || estadoProyecto.untouched">
+                                <div class="error" [hidden]="!estadoProyecto.hasError('required')">
+                                    Este campo es requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12">
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="button-demo">
+                            <button type="button" class="btn btn-primary waves-effect" [disabled]="!formProyecto.valid"
+                                (click)="onsubmit()">REGISTRAR</button>
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

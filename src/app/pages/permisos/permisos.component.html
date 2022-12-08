@@ -1,0 +1,57 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>LISTADO DE ROLES</h2>
+        </div>
+        <div class="row clearfix">
+            
+       
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                 
+                        <div class="body">
+                            <div class="row clearfix">
+
+                                <div class="col-sm-12">
+                                    <div class="button-demo">
+                                        <button type="button" class="btn btn-primary waves-effect" routerLink="/registrar-roles">REGISTRAR ROL</button>
+    
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <table id="mainTable" class="table table-striped" style="cursor: pointer;">
+                                <thead>
+                                    <tr>
+                                        <th>COD</th>
+                                        <th>Perfil</th>
+                                        <th></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let rol of roles">
+                                        <td>{{rol.codRol }}</td>
+                                        <td>{{rol.desRol}}</td>
+                                        <td>
+                                            <span (click)="deleteRol(rol.codRol)" class="glyphicon glyphicon-remove cursor delete_reg" aria-hidden="true"></span>
+                                        </td>
+
+                                        
+                                    </tr>
+                                  
+                                   
+                                </tbody>
+
+                            </table>
+                            <input style="position: absolute; display: none;">
+                        </div>
+                    </div>
+                </div>
+      
+        </div>
+
+    </div>
+</section>
+
+

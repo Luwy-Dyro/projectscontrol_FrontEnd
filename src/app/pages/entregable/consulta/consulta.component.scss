@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+.mr-3{
+  margin-right: 30px;
+}
+th{
+  cursor: pointer;
+  vertical-align: middle;
+}
+th i {
+  font-size: 13px !important;
+  display: inline;
+  margin: 0 0px 0 5px;
+}
+td{
+font-size: 12px !important;
+}
+.pwrap1{
+max-width: 360px;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+padding: 0px 10px 0 25px !important;
+}
+th.mat-header-cell, td.mat-cell:last-child, td.mat-footer-cell:last-child {
+padding-right: 20px !important;
+}
